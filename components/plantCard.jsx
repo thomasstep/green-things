@@ -1,3 +1,13 @@
+import React from 'react';
+
+// TODO move to constants file
+const traits = {
+  zones: 'Ideal Zones for Growing',
+  water: 'Water Needs',
+  sun: 'Sun Needs',
+  timeToHarvest: 'Expected Time To Harvest',
+};
+
 export default function PlantCard(props) {
   const { plant, visible, clearCard } = props;
 
@@ -19,15 +29,26 @@ export default function PlantCard(props) {
                   ${visible ? 'visible' : 'invisible'}`}
     >
       <div className="flex flex-row justify-between grids-cols-2">
-        <h1 className="font-bold">{plant.name}</h1>
-        <h1
+        <h1 className="text-2xl font-bold">{plant.name}</h1>
+        <button
           className="font-bold"
-          onClick={clearCard}>X</h1>
+          onClick={clearCard}>
+          Close
+        </button>
       </div>
-      <h3 className="mt-6 text-2xl font-bold">Water</h3>
-      <p>{`Wants ${plant.water} of water`}</p>
-      <h3 className="mt-6 text-2xl font-bold">Sun</h3>
-      <p>{`Wants ${plant.sun} sun`}</p>
+      {
+        Object.entries(traits).filter(([trait]) => {
+          if (plant[trait]) return true;
+          return false;
+        }).map(([trait, traitDisplay]) => {
+          return (
+            <React.Fragment key={`${plant.name}-${trait}`}>
+              <h3 className="mt-6 text-xl">{traitDisplay}</h3>
+              <p>{plant[trait]}</p>
+            </React.Fragment>
+          );
+        })
+      }
     </div>
   );
 }

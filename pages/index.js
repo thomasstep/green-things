@@ -4,18 +4,20 @@ import Head from 'next/head';
 import PlantTile from '../components/plantTile';
 import PlantCard from '../components/plantCard';
 
+// TODO move to constants file
 const plants = [
   {
     name: 'potato',
     tileInfo: 'everyone loves potatoes',
-    water: '1 inch per day',
-    sun: 'full'
+    zones: 'all',
+    water: 'Wants 1 inch per day of water',
+    sun: 'Wants full sun',
   },
   {
     name: 'pepper',
     tileInfo: 'ouch that\'s hot',
-    water: '0.5 inches per day',
-    sun: 'full'
+    water: 'Wants 0.5 inches per day of water',
+    sun: 'Wants full sun',
   },
 ];
 
