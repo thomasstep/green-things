@@ -4,22 +4,7 @@ import Head from 'next/head';
 import PlantTile from '../components/plantTile';
 import PlantCard from '../components/plantCard';
 
-// TODO move to constants file
-const plants = [
-  {
-    name: 'potato',
-    tileInfo: 'everyone loves potatoes',
-    zones: 'all',
-    water: 'Wants 1 inch per day of water',
-    sun: 'Wants full sun',
-  },
-  {
-    name: 'pepper',
-    tileInfo: 'ouch that\'s hot',
-    water: 'Wants 0.5 inches per day of water',
-    sun: 'Wants full sun',
-  },
-];
+import { PLANTS } from '../utils/constants';
 
 export default function Home() {
   const [activePlant, setActivePlant] = useState('');
@@ -45,6 +30,10 @@ export default function Home() {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
+      <h1 className={`text-6xl font-bold mt-6 ${activePlant === "" ? "" : "opacity-10"}`}>
+        Green Things
+      </h1>
+
       <main className="flex flex-col items-center justify-center flex-1 h-5/6 w-10/12 mx-auto text-center">
         <div className={`flex \
                          flex-wrap \
@@ -56,7 +45,7 @@ export default function Home() {
                          sm:w-full \
                          ${activePlant === "" ? "" : "opacity-10"}`}>
           {
-            plants.map((plant) => (
+            PLANTS.map((plant) => (
               <PlantTile
                 plant={plant}
                 showCard={showCard}
@@ -67,7 +56,7 @@ export default function Home() {
         </div>
       </main>
       {
-        plants.map((plant) => (
+        PLANTS.map((plant) => (
           <PlantCard
             plant={plant}
             visible={activePlant === plant.name}

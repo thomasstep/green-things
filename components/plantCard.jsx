@@ -1,12 +1,6 @@
 import React from 'react';
 
-// TODO move to constants file
-const traits = {
-  zones: 'Ideal Zones for Growing',
-  water: 'Water Needs',
-  sun: 'Sun Needs',
-  timeToHarvest: 'Expected Time To Harvest',
-};
+import { TRAITS } from '../utils/constants';
 
 export default function PlantCard(props) {
   const { plant, visible, clearCard } = props;
@@ -37,7 +31,7 @@ export default function PlantCard(props) {
         </button>
       </div>
       {
-        Object.entries(traits).filter(([trait]) => {
+        Object.entries(TRAITS).filter(([trait]) => {
           if (plant[trait]) return true;
           return false;
         }).map(([trait, traitDisplay]) => {
