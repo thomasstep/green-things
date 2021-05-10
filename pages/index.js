@@ -6,6 +6,7 @@ import PlantCard from '../components/plantCard';
 
 import { PLANTS } from '../utils/constants';
 
+// TODO esc key should set card to ""
 export default function Home() {
   const [activePlant, setActivePlant] = useState('');
 

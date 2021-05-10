@@ -22,27 +22,29 @@ export default function PlantCard(props) {
                   absolute \
                   ${visible ? 'visible' : 'invisible'}`}
     >
-      <div className="flex flex-row justify-between grids-cols-2">
+      <div className="flex flex-row justify-between grids-cols-2 mb-6">
         <h1 className="text-2xl font-bold">{plant.name}</h1>
         <button
-          className="font-bold"
+          className="font-bold hover:text-green-700 focus:text-green-700"
           onClick={clearCard}>
           Close
         </button>
       </div>
-      {
-        Object.entries(TRAITS).filter(([trait]) => {
-          if (plant[trait]) return true;
-          return false;
-        }).map(([trait, traitDisplay]) => {
-          return (
-            <React.Fragment key={`${plant.name}-${trait}`}>
-              <h3 className="mt-6 text-xl">{traitDisplay}</h3>
-              <p>{plant[trait]}</p>
-            </React.Fragment>
-          );
-        })
-      }
+      <div className="divide-y-2 divide-green-700 divide-opacity-40">
+        {
+          Object.entries(TRAITS).filter(([trait]) => {
+            if (plant[trait]) return true;
+            return false;
+          }).map(([trait, traitDisplay]) => {
+            return (
+              <div key={`${plant.name}-${trait}`}>
+                <h3 className="mt-6 text-xl font-bold">{traitDisplay}</h3>
+                <p className="mb-6">{plant[trait]}</p>
+              </div>
+            );
+          })
+        }
+      </div>
     </div>
   );
 }
