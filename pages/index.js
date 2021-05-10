@@ -45,14 +45,14 @@ export default function Home() {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      <main className="flex flex-col items-center justify-center flex-1 mx-auto text-center">
+      <main className="flex flex-col items-center justify-center flex-1 h-5/6 w-10/12 mx-auto text-center">
         <div className={`flex \
                          flex-wrap \
                          items-center \
                          justify-around \
                          max-w-4xl \
                          mt-6 \
-                         space-x-4 \
+                         md:space-x-4 \
                          sm:w-full \
                          ${activePlant === "" ? "" : "opacity-10"}`}>
           {
@@ -65,17 +65,17 @@ export default function Home() {
             )
           }
         </div>
-        {
-          plants.map((plant) => (
-            <PlantCard
-              plant={plant}
-              visible={activePlant === plant.name}
-              clearCard={clearCard}
-              key={`${plant.name}-card`} />
-            )
-          )
-        }
       </main>
+      {
+        plants.map((plant) => (
+          <PlantCard
+            plant={plant}
+            visible={activePlant === plant.name}
+            clearCard={clearCard}
+            key={`${plant.name}-card`} />
+          )
+        )
+      }
     </div>
   )
 }

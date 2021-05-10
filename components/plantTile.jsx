@@ -3,7 +3,7 @@ export default function PlantTile(props) {
 
   return (
     <div
-      className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
+      className="p-6 mt-6 text-left border w-10/12 md:w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
       onClick={(e) => showCard(e, plant.name)}
     >
       <h3 className="text-2xl font-bold">{plant.name}</h3>
