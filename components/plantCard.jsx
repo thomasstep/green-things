@@ -36,12 +36,31 @@ export default function PlantCard(props) {
             if (plant[trait]) return true;
             return false;
           }).map(([trait, traitDisplay]) => {
-            return (
-              <div key={`${plant.name}-${trait}`}>
-                <h3 className="mt-6 text-xl font-bold">{traitDisplay}</h3>
-                <p className="mb-6">{plant[trait]}</p>
-              </div>
-            );
+            if (typeof plant[trait] === 'string' && plant[trait].length > 0) {
+              return (
+                <div key={`${plant.name}-${trait}`}>
+                  <h3 className="mt-6 mb-4 text-xl font-bold">{traitDisplay}</h3>
+                      <p className="mb-6">{plant[trait]}</p>
+                </div>
+              );
+            }
+
+            if (Array.isArray(plant[trait]) && plant[trait].length > 0) {
+              return (
+                <div key={`${plant.name}-${trait}`}>
+                  <h3 className="mt-6 mb-4 text-xl font-bold">{traitDisplay}</h3>
+                    <ul className="mb-6 list-none">
+                      {
+                        plant[trait].map((traitEntry) => {
+                          return (
+                            <li key={`${plant.name}-${trait}-${traitEntry}`}>{traitEntry}</li>
+                          );
+                        })
+                      }
+                    </ul>
+                </div>
+              );
+            }
           })
         }
       </div>

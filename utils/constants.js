@@ -4,6 +4,14 @@ const constants = {
     lastName: '',
     hardinessZone: '0',
   },
+  TRAITS: {
+    zones: 'Ideal Zones for Growing',
+    water: 'Water Needs',
+    sun: 'Sun Needs',
+    timeToHarvest: 'Expected Time To Harvest',
+    friends: 'Companion Plants',
+    enemies: 'Don\'t Plant Next to These',
+  },
   PLANTS: [
     {
       name: 'garlic',
@@ -20,8 +28,8 @@ const constants = {
       zones: '3 to 9',
       water: '1 to 2 inches per week',
       sun: 'Full sun - at least 6 hours per day',
-      friends: [],
-      enemies: [],
+      friends: ['carrot', 'beet', 'lettuce', 'tomato', 'rosemary'],
+      enemies: ['asparagus', 'beans', 'peas'],
     },
     {
       name: 'jalapeno pepper',
@@ -29,8 +37,8 @@ const constants = {
       zones: '5 to 11',
       water: '1 to 2 inches per week, more when hotter',
       sun: 'Full sun - at least 6 hours per day',
-      friends: [],
-      enemies: [],
+      friends: ['basil', 'onion', 'spinach', 'tomato'],
+      enemies: ['beans'],
     },
     {
       name: 'potato',
@@ -51,12 +59,6 @@ const constants = {
       enemies: [],
     },
   ],
-  TRAITS: {
-    zones: 'Ideal Zones for Growing',
-    water: 'Water Needs',
-    sun: 'Sun Needs',
-    timeToHarvest: 'Expected Time To Harvest',
-  },
 };
 
 module.exports = constants;
