@@ -7,19 +7,18 @@ export default function PlantCard(props) {
 
   return (
     <div
-      className={`flex \
-                  flex-col \
-                  flex-grow \
+      className={`overflow-auto \
                   z-30 \
                   h-5/6 \
                   w-10/12 \
                   mx-auto \
+                  top-20 \
                   p-6 \
                   border \
                   rounded-xl \
                   bg-white \
                   text-left \
-                  absolute \
+                  fixed \
                   ${visible ? 'visible' : 'invisible'}`}
     >
       <div className="flex flex-row justify-between grids-cols-2 mb-6">

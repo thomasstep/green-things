@@ -35,7 +35,18 @@ export default function Home() {
         Green Things
       </h1>
 
-      <main className="flex flex-col items-center justify-center flex-1 h-5/6 w-10/12 mx-auto text-center">
+      {
+        PLANTS.map((plant) => (
+          <PlantCard
+            plant={plant}
+            visible={activePlant === plant.name}
+            clearCard={clearCard}
+            key={`${plant.name}-card`} />
+          )
+        )
+      }
+
+      <main className="flex flex-col items-center justify-center flex-1 text-center">
         <div className={`flex \
                          flex-wrap \
                          items-center \
@@ -56,16 +67,6 @@ export default function Home() {
           }
         </div>
       </main>
-      {
-        PLANTS.map((plant) => (
-          <PlantCard
-            plant={plant}
-            visible={activePlant === plant.name}
-            clearCard={clearCard}
-            key={`${plant.name}-card`} />
-          )
-        )
-      }
     </div>
   )
 }
