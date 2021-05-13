@@ -21,7 +21,7 @@ export default function PlantCard(props) {
                   fixed \
                   ${visible ? 'visible' : 'invisible'}`}
     >
-      <div className="flex flex-row justify-between grids-cols-2 mb-6">
+      <div className="flex flex-row justify-between mb-6">
         <h1 className="text-2xl font-bold">{plant.name}</h1>
         <button
           className="font-bold hover:text-green-700 focus:text-green-700"

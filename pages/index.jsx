@@ -30,10 +30,21 @@ export default function Home() {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
+      
+      <header>
+        <div className="flex flex-col-reverse md:flex-row justify-center my-6">
+          <h1 className={`text-6xl font-bold mt-6 ${activePlant === "" ? "" : "opacity-10"}`}>
+            Green Things
+          </h1>
 
-      <h1 className={`text-6xl font-bold mt-6 ${activePlant === "" ? "" : "opacity-10"}`}>
-        Green Things
-      </h1>
+          <p className="mx-6">
+            {
+              // nbsp for the style
+            }
+            <a href="/">home</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/blog">blog</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="/profile">profile</a>
+          </p>
+        </div>
+      </header>
 
       {
         PLANTS.map((plant) => (
